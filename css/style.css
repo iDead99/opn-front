@@ -469,6 +469,7 @@ pre {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-content: space-between;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-right: -15px;
@@ -3448,7 +3449,9 @@ input[type="button"].btn-block {
   align-items: center;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  justify-content: space-between;  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
   padding: 0.5rem 1rem; }
   .navbar > .container,
   .navbar > .container-fluid {
@@ -8334,7 +8337,7 @@ h1, h2, h3, h4, h5,
           letter-spacing: 10px;
           font-family: "Lora", Georgia, serif; }
           .owl-carousel.home-slider .slider-item .slider-text h1 span {
-            color: #ffd615;
+            color: lightblue;
             position: relative; }
           @media (max-width: 991.98px) {
             .owl-carousel.home-slider .slider-item .slider-text h1 {
