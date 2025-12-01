@@ -1,15 +1,4 @@
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const message = document.getElementById("message").value;
-
-    const mailto = `mailto:ericbroni@hotmail.com?subject=New Message From ${encodeURIComponent(name)}&body=${encodeURIComponent(message + "\n\nby " + name)}`;
-
-    window.location.href = mailto;
-});
-					
-						 AOS.init({
+AOS.init({
  	duration: 800,
  	easing: 'slide'
  });
