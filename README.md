@@ -1,1 +1,1 @@
-# ChurchWebsiteTemplate
+Olive Path
