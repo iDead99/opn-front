@@ -260,7 +260,7 @@ AOS.init({
   });
 
 $('.popup-youtube, .popup-vimeo, .popup-tiktok, .popup-gmaps').magnificPopup({
-  disableOn: 700,
+  disableOn: 0,
   type: 'iframe',
   mainClass: 'mfp-fade',
   removalDelay: 160,
