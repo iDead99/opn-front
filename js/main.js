@@ -260,7 +260,7 @@ AOS.init({
   });
 
 $('.popup-youtube, .popup-vimeo, .popup-tiktok, .popup-gmaps').magnificPopup({
-  disableOn: false,   // <-- FIX
+  disableOn: 0,   // allow popup always WITHOUT breaking autoplay
   type: 'iframe',
   mainClass: 'mfp-fade',
   removalDelay: 160,
@@ -275,13 +275,18 @@ $('.popup-youtube, .popup-vimeo, .popup-tiktok, .popup-gmaps').magnificPopup({
           var m = url.match(/[?&]v=([^&]+)|youtu\.be\/([^?]+)/);
           return m ? (m[1] || m[2]) : null;
         },
-        src: 'https://www.youtube.com/embed/%id%?autoplay=1&rel=0'
+        src: 'https://www.youtube.com/embed/%id%?autoplay=1&rel=0&enablejsapi=1'
       },
+
       vimeo: {
         index: 'vimeo.com/',
-        id: '/(\\d+)/',
+        id: function(url) {
+          var m = url.match(/vimeo\.com\/(\d+)/);
+          return m ? m[1] : null;
+        },
         src: 'https://player.vimeo.com/video/%id%?autoplay=1&title=0&byline=0&portrait=0'
       },
+
       tiktok: {
         index: 'tiktok.com/',
         id: function(url) {
