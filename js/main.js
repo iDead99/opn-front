@@ -260,7 +260,7 @@ AOS.init({
   });
 
 $('.popup-youtube, .popup-vimeo, .popup-tiktok, .popup-gmaps').magnificPopup({
-  disableOn: 0,   // allow popup always WITHOUT breaking autoplay
+  disableOn: 700,
   type: 'iframe',
   mainClass: 'mfp-fade',
   removalDelay: 160,
@@ -272,27 +272,26 @@ $('.popup-youtube, .popup-vimeo, .popup-tiktok, .popup-gmaps').magnificPopup({
       youtube: {
         index: 'youtube.com/',
         id: function(url) {
+          // Works for both youtube.com and youtu.be
           var m = url.match(/[?&]v=([^&]+)|youtu\.be\/([^?]+)/);
           return m ? (m[1] || m[2]) : null;
         },
-        src: 'https://www.youtube.com/embed/%id%?autoplay=1&rel=0&enablejsapi=1'
+        // autoplay + disable unrelated suggestions
+        src: 'https://www.youtube.com/embed/%id%?autoplay=1&rel=0'
       },
-
       vimeo: {
         index: 'vimeo.com/',
-        id: function(url) {
-          var m = url.match(/vimeo\.com\/(\d+)/);
-          return m ? m[1] : null;
-        },
+        id: '/(\\d+)/',
+        // autoplay + hide title/byline/avatar
         src: 'https://player.vimeo.com/video/%id%?autoplay=1&title=0&byline=0&portrait=0'
       },
-
       tiktok: {
         index: 'tiktok.com/',
         id: function(url) {
           var m = url.match(/\/video\/(\d+)/);
           return m ? m[1] : null;
         },
+        // TikTok only autoplay if muted, so we pass "autoplay=1&muted=1"
         src: 'https://www.tiktok.com/embed/v2/%id%?autoplay=1&muted=1'
       }
     }
