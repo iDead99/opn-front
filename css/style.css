@@ -9918,3 +9918,24 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+    
+    
+    
+    
+/* Center ALL social icons (IcoMoon + Font Awesome) */
+.ftco-footer-social li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Font Awesome icon sizing fix */
+.ftco-footer-social li a i {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Optional: slightly boost TikTok for visual balance */
+.ftco-footer-social li a i.fa-tiktok {
+  font-size: 19px;
+}
